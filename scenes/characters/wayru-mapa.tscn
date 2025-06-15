@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://bf8x4ka3saum8" path="res://scripts/characters/wayru-mapa.gd" id="1_1iwo8"]
 [ext_resource type="Texture2D" uid="uid://cuh5ba3kn8pln" path="res://assets/characters/wayruMapMovement.png" id="2_4uqa8"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef522"]
-radius = 2.0
-height = 8.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iwo8"]
+size = Vector2(6, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8dqb4"]
 atlas = ExtResource("2_4uqa8")
@@ -117,11 +116,22 @@ animations = [{
 [node name="WayruMapa" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("1_1iwo8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CapsuleShape2D_ef522")
+light_mask = 9
+visibility_layer = 9
+shape = SubResource("RectangleShape2D_1iwo8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_vclj1")
 animation = &"caminar-abajo"
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = 0
+limit_right = 640
+limit_bottom = 320
