@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://det6rlrm3fgfl"]
+
+[ext_resource type="Texture2D" uid="uid://butt0nac5f4r7" path="res://assets/characters/wayruIdle.png" id="1_lomf8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpnul"]
+atlas = ExtResource("1_lomf8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvant"]
+atlas = ExtResource("1_lomf8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoim5"]
+atlas = ExtResource("1_lomf8")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgbh7"]
+atlas = ExtResource("1_lomf8")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ebucl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpnul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvant")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qoim5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgbh7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WayruCombate" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+
+[node name="as_idle" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_ebucl")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(2, 2)
