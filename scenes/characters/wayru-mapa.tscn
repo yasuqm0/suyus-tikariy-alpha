@@ -1,0 +1,127 @@
+[gd_scene load_steps=17 format=3 uid="uid://dya21lfkxfxxb"]
+
+[ext_resource type="Script" uid="uid://bf8x4ka3saum8" path="res://scripts/characters/wayru-mapa.gd" id="1_1iwo8"]
+[ext_resource type="Texture2D" uid="uid://cuh5ba3kn8pln" path="res://assets/characters/wayruMapMovement.png" id="2_4uqa8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef522"]
+radius = 2.0
+height = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dqb4"]
+atlas = ExtResource("2_4uqa8")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2388"]
+atlas = ExtResource("2_4uqa8")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of30c"]
+atlas = ExtResource("2_4uqa8")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vceo"]
+atlas = ExtResource("2_4uqa8")
+region = Rect2(0, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ahnd"]
+atlas = ExtResource("2_4uqa8")
+region = Rect2(8, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwpno"]
+atlas = ExtResource("2_4uqa8")
+region = Rect2(16, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8hde"]
+atlas = ExtResource("2_4uqa8")
+region = Rect2(0, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifwbv"]
+atlas = ExtResource("2_4uqa8")
+region = Rect2(8, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s8yy"]
+atlas = ExtResource("2_4uqa8")
+region = Rect2(16, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1356b"]
+atlas = ExtResource("2_4uqa8")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbdbc"]
+atlas = ExtResource("2_4uqa8")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8te6c"]
+atlas = ExtResource("2_4uqa8")
+region = Rect2(16, 8, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vclj1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dqb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2388")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of30c")
+}],
+"loop": false,
+"name": &"caminar-abajo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vceo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ahnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwpno")
+}],
+"loop": false,
+"name": &"caminar-arriba",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8hde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifwbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s8yy")
+}],
+"loop": false,
+"name": &"caminar-derecha",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1356b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbdbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8te6c")
+}],
+"loop": false,
+"name": &"caminar-izquierda",
+"speed": 5.0
+}]
+
+[node name="WayruMapa" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_1iwo8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_ef522")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_vclj1")
+animation = &"caminar-abajo"
